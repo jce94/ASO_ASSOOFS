@@ -12,11 +12,12 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Javier Carracedo Esteban");
 
+static struct kmem_cache *assoofs_inode_cache;
 
 static struct file_system_type assoofs_type = {
 	.owner = THIS_MODULE,
 	.namw = "assoofs",
-	.mount = assoofs_mount,
+	//.mount = assoofs_mount, Necesaria comentarla.
 	.kill_sb = kill_litter_super,
 };
 
@@ -35,8 +36,6 @@ static int __init assoofs_init(void){
 	}
 	return ret;
 }
-
-
 static void __exit assoofs_exit(void){
 	int ret;
 	ret = unregister_filesystem(&assoofs_type);
@@ -46,6 +45,4 @@ static void __exit assoofs_exit(void){
 		printk(KERN_INFO "Sucessfully unregistered assoofs\n");
 	else
 		printk(KERN_ERR "Failed to unregister assoofs. Error:[%d]\n", ret);
-
 }
-
