@@ -1,3 +1,4 @@
+/*Libreiras*/
 #include <linux/module.h>       /* Needed by all modules */
 #include <linux/kernel.h>       /* Needed for KERN_INFO  */
 #include <linux/init.h>         /* Needed for the macros */
@@ -5,6 +6,8 @@
 #include <asm/uaccess.h>        /* copy_to_user          */
 #include <linux/buffer_head.h>  /* buffer_head           */
 #include <linux/slab.h>         /* kmem_cache            */
+
+
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Javier Carracedo Esteban");
